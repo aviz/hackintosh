@@ -1,0 +1,3 @@
+[submodule "thirdparty/Laptop-DSDT-Patch"]
+	path = thirdparty/Laptop-DSDT-Patch
+	url = https://github.com/RehabMan/Laptop-DSDT-Patch.git
