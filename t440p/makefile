@@ -77,6 +77,7 @@ install: extract patch $(PRODUCTS) mount
 	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-9.aml
 	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/T440pYekkiBluetoothInjector.kext
 	unzip kext/T440pYekkiBluetoothInjector.kext.zip -d $(EFIDIR)/EFI/CLOVER/kexts/10.9/
+	unzip kext/VoodooPS2Controller.kext.zip -d $(EFIDIR)/EFI/CLOVER/kexts/10.9/
 
 umount:
 	diskutil unmount $(EFIDIR)

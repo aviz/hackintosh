@@ -16,7 +16,7 @@
 				<true/>
 			</dict>
 			<key>Name</key>
-			<string>dsdt.aml</string>
+			<string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
@@ -36,7 +36,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-gux_defer_usb2 kext-dev-mode=1</string>
+		<string>nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>Legacy</key>
