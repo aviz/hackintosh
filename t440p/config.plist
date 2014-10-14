@@ -16,7 +16,7 @@
 				<true/>
 			</dict>
 			<key>Name</key>
-			<string>DSDT.aml</string>
+			<string>dsdt.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
