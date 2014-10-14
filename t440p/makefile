@@ -5,7 +5,7 @@ EXTRACTED=$(WORK)/extracted
 EFIDIR=/Volumes/EFI
 EFIVOL=/dev/disk1s1
 IASLFLAGS=-vr -w1
-LAPTOPGIT=../../thirdparty/Laptop-DSDT-Patch
+LAPTOPGIT=../thirdparty/Laptop-DSDT-Patch
 PRODUCTS=$(PATCHED)/dsdt.aml $(PATCHED)/ssdt2.aml $(PATCHED)/ssdt6.aml $(PATCHED)/ssdt9.aml
 
 all: $(PRODUCTS)
@@ -25,7 +25,7 @@ $(PATCHED)/ssdt9.aml: $(PATCHED)/ssdt9.dsl
 extract:
 	rm -rf $(WORK)
 	mkdir $(WORK)
-	cp -R linux_native $(EXTRACTED)
+	cp -R dsdt+ssdt/linux_native $(EXTRACTED)
 	iasl -da $(EXTRACTED)/DSDT $(EXTRACTED)/SSDT* $(EXTRACTED)/dynamic/SSDT*
 	mkdir $(UNPATCHED)
 	cp $(EXTRACTED)/*.dsl $(EXTRACTED)/dynamic/*.dsl $(UNPATCHED)/
@@ -54,7 +54,7 @@ patch:
 	patchmatic $(PATCHED)/ssdt9.dsl $(LAPTOPGIT)/graphics/graphics_Rename-PCI0_VID.txt $(PATCHED)/ssdt9.dsl
 
 	patchmatic $(PATCHED)/ssdt6.dsl $(LAPTOPGIT)/graphics/graphics_PNLF_haswell.txt $(PATCHED)/ssdt6.dsl
-	patch $(PATCHED)/ssdt6.dsl < patches/fix_external_DOS.patch
+	patch $(PATCHED)/ssdt6.dsl < dsdt+ssdt/patches/fix_external_DOS.patch
 
 	#patchmatic $(PATCHED)/$(GFXssdt).dsl patches/hdmi_audio.txt $(PATCHED)/$(GFXssdt).dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/usb/usb_7-series.txt $(PATCHED)/dsdt.dsl
@@ -70,10 +70,12 @@ patch:
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/battery/battery_Lenovo-T440p.txt $(PATCHED)/dsdt.dsl
 
 install: extract patch $(PRODUCTS)
-	if [ ! -d $(EFIDIR)/EFI ]; then mkdir $(EFIDIR) && diskutil mount -mountPoint /Volumes/EFI $(EFIVOL); fi
+	if [ ! -d $(EFIDIR) ]; then mkdir $(EFIDIR); fi
+	if [ ! -d $(EFIDIR)/EFI ]; then diskutil mount -mountPoint /Volumes/EFI $(EFIVOL); fi
 	cp $(PATCHED)/dsdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
 	cp $(PATCHED)/ssdt2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-2.aml
 	cp $(PATCHED)/ssdt6.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-6.aml
 	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-9.aml
+	unzip kext/T440pYekkiBluetoothInjector.kext.zip -d $(EFIDIR)/EFI/CLOVER/kexts/10.9/
 	diskutil unmount $(EFIDIR)
 	if [ -d "/Volumes/EFI" ]; then rmdir /Volumes/EFI; fi

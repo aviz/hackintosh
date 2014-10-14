@@ -1,3 +1,6 @@
 [submodule "thirdparty/Laptop-DSDT-Patch"]
 	path = thirdparty/Laptop-DSDT-Patch
 	url = https://github.com/RehabMan/Laptop-DSDT-Patch.git
+[submodule "thirdparty/Lenovo-U430-Touch-DSDT-Patch"]
+	path = thirdparty/Lenovo-U430-Touch-DSDT-Patch
+	url = https://github.com/RehabMan/Lenovo-U430-Touch-DSDT-Patch.git

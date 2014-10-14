@@ -1,0 +1,11 @@
+--- ssdt6.dsl	2014-10-14 07:43:56.000000000 -0700
++++ /tmp/ssdt6.dsl	2014-10-14 07:43:46.000000000 -0700
+@@ -1125,7 +1125,7 @@
+             {
+                 // Note: Some systems have this defined in DSDT, so uncomment
+                 // the next line if that is the case.
+-                //External(^^PCI0.IGPU._DOS, MethodObj)
++                External(^^PCI0.IGPU._DOS, MethodObj)
+                 ^^PCI0.IGPU._DOS(Arg0)
+             }
+             // extended _BCM/_BQC for setting "in between" levels
