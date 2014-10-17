@@ -9,7 +9,7 @@
 			<key>Debug</key>
 			<false/>
 			<key>DropOEM_DSM</key>
-			<false/>
+			<true/>
 			<key>Fixes</key>
 			<dict>
 				<key>DeleteUnused_400000</key>
@@ -19,6 +19,8 @@
 			<string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
+			<key>SlpSmiAtWake</key>
+			<true/>
 		</dict>
 		<key>SSDT</key>
 		<dict>
@@ -36,7 +38,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
+		<string>-v dart=0 nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>Legacy</key>
@@ -172,6 +174,8 @@
 		</dict>
 		<key>Theme</key>
 		<string>thinkpad</string>
+		<key>ScreenResolution</key>
+		<string>1024x768</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
