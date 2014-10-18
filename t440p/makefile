@@ -3,9 +3,10 @@ PATCHED=$(WORK)/patched
 UNPATCHED=$(WORK)/unpatched
 EXTRACTED=$(WORK)/extracted
 EFIDIR=/Volumes/EFI
-EFIVOL=/dev/disk3s1
+EFIVOL=/dev/disk1s1
 IASLFLAGS=-vr -w1
 LAPTOPGIT=../thirdparty/Laptop-DSDT-Patch
+U430GIT=../thirdparty/Lenovo-U430-Touch-DSDT-Patch
 PRODUCTS=$(PATCHED)/dsdt.aml $(PATCHED)/ssdt2.aml $(PATCHED)/ssdt6.aml $(PATCHED)/ssdt9.aml 
 
 all: $(PRODUCTS)
@@ -42,20 +43,28 @@ patch:
 	patchmatic $(PATCHED)/ssdt6.dsl $(LAPTOPGIT)/graphics/graphics_Rename-PCI0_VID.txt $(PATCHED)/ssdt6.dsl
 	patchmatic $(PATCHED)/ssdt9.dsl $(LAPTOPGIT)/graphics/graphics_Rename-PCI0_VID.txt $(PATCHED)/ssdt9.dsl
 
-	patchmatic $(PATCHED)/ssdt6.dsl $(LAPTOPGIT)/graphics/graphics_PNLF_haswell.txt $(PATCHED)/ssdt6.dsl
-	patch $(PATCHED)/ssdt6.dsl < dsdt+ssdt/patches/fix_external_DOS.patch
+	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/syntax_dsdt.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt2.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt2.dsl
+	patchmatic $(PATCHED)/dsdt6.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt6.dsl
+	patchmatic $(PATCHED)/dsdt9.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt9.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/remove_wmi.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/keyboard.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/audio.txt $(PATCHED)/dsdt.dsl
+
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_PNLF_haswell.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/ssdt.dsl $(LAPTOPGIT)/miscc_Haswell-LPC.txt $(PATCHED)/ssdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_Haswell_0a260006.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/usb/usb_7-series.txt $(PATCHED)/dsdt.dsl
-	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_Mutex.txt $(PATCHED)/dsdt.dsl
-	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/battery/battery_Lenovo-T440p.txt $(PATCHED)/dsdt.dsl
 
-	patchmatic $(PATCHED)/dsdt.dsl dsdt+ssdt/patches/fix_brightness_Lenovo-t440p.txt $(PATCHED)/dsdt.dsl
+	##patchmatic $(PATCHED)/dsdt.dsl dsdt+ssdt/patches/fix_brightness_Lenovo-t440p.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_IRQ.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_SMBUS.txt $(PATCHED)/dsdt.dsl
-	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_HPET.txt $(PATCHED)/dsdt.dsl
+	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_HPET.txt $(PATCHED)/dsdt.dsl
+	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_MCHC.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_PNOT.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_IMEI.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_OSYS.txt $(PATCHED)/dsdt.dsl
@@ -65,18 +74,34 @@ patch:
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_WAK2.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_ADP1.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_Shutdown2.txt $(PATCHED)/dsdt.dsl
-	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_MCHC.txt $(PATCHED)/dsdt.dsl
+
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_Mutex.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/battery/battery_Lenovo-T440p.txt $(PATCHED)/dsdt.dsl
+
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_ADBG.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_FDE.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_FPED.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_HID_pnp.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_IRC.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_MMTB.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_PARSEOP_ZERO.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_PLD.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_TNOT.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/remove_DSM.txt $(PATCHED)/dsdt.dsl
 
 install: extract patch $(PRODUCTS) mount
 	cp config.plist $(EFIDIR)/EFI/CLOVER/config.plist
-	cp $(PATCHED)/dsdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched
-	cp $(PATCHED)/ssdt2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-2.aml
-	cp $(PATCHED)/ssdt6.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-6.aml
-	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt-9.aml
-	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/T440pYekkiBluetoothInjector.kext
-	unzip kext/T440pYekkiBluetoothInjector.kext.zip -d $(EFIDIR)/EFI/CLOVER/kexts/10.9/
-	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/VoodooPS2Controller.kext
-	unzip kext/VoodooPS2Controller.kext.zip -d $(EFIDIR)/EFI/CLOVER/kexts/10.9/
+	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/*
+	rm -f $(EFIDIR)/EFI/CLOVER/drivers64UEFI/VBoxHfs-64.efi
+	cp -f efi/HFSPlus.efi $(EFIDIR)/EFI/CLOVER/drivers64UEFI/
+	cp $(PATCHED)/dsdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/DSDT.aml
+	cp $(PATCHED)/ssdt2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT2.aml
+	cp $(PATCHED)/ssdt6.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT6.aml
+	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT9.aml
+	cp dsdt+ssdt/generated/ssdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt.aml
+
+	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/*
+	cp -R kext/* $(EFIDIR)/EFI/CLOVER/kexts/10.9/
 
 umount:
 	diskutil unmount $(EFIDIR)

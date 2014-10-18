@@ -19,6 +19,8 @@
 			<string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
+			<key>SlpSmiAtWake</key>
+			<true/>
 		</dict>
 		<key>SSDT</key>
 		<dict>
@@ -36,7 +38,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-v dart=0 nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
+		<string>-v -x dart=0 nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>Legacy</key>
@@ -144,7 +146,7 @@
 					<key>InjectKexts</key>
 					<true/>
 					<key>NoCaches</key>
-					<true/>
+					<false/>
 					<key>Type</key>
 					<string>OSXRecovery</string>
 					<key>VolumeType</key>
