@@ -45,16 +45,16 @@ patch:
 
 	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/syntax_dsdt.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt.dsl
-	patchmatic $(PATCHED)/dsdt2.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt2.dsl
-	patchmatic $(PATCHED)/dsdt6.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt6.dsl
-	patchmatic $(PATCHED)/dsdt9.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/dsdt9.dsl
+	patchmatic $(PATCHED)/ssdt2.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/ssdt2.dsl
+	patchmatic $(PATCHED)/ssdt6.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/ssdt6.dsl
+	patchmatic $(PATCHED)/ssdt9.dsl $(U430GIT)/patches/cleanup.txt $(PATCHED)/ssdt9.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/remove_wmi.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/keyboard.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(U430GIT)/patches/audio.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_PNLF_haswell.txt $(PATCHED)/dsdt.dsl
 
-	patchmatic $(PATCHED)/ssdt.dsl $(LAPTOPGIT)/miscc_Haswell-LPC.txt $(PATCHED)/ssdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/miscc_Haswell-LPC.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_Haswell_0a260006.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/usb/usb_7-series.txt $(PATCHED)/dsdt.dsl
@@ -63,8 +63,8 @@ patch:
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_IRQ.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_SMBUS.txt $(PATCHED)/dsdt.dsl
-	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_HPET.txt $(PATCHED)/dsdt.dsl
-	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_MCHC.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_HPET.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_MCHC.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_PNOT.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_IMEI.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/system/system_OSYS.txt $(PATCHED)/dsdt.dsl
