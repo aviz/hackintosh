@@ -89,7 +89,9 @@ patch:
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/fix_TNOT.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/syntax/remove_DSM.txt $(PATCHED)/dsdt.dsl
 
-install: extract patch $(PRODUCTS) mount
+install: extract patch $(PRODUCTS) mount copy
+
+copy:  mount
 	cp config.plist $(EFIDIR)/EFI/CLOVER/config.plist
 	rm -f $(EFIDIR)/EFI/CLOVER/ACPI/patched/*
 	rm -f $(EFIDIR)/EFI/CLOVER/drivers64UEFI/VBoxHfs-64.efi
