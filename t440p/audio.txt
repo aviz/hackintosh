@@ -1,0 +1,4 @@
+Realtek ALC292
+Vendor Id: 0x10ec0292
+Subsystem ID: 0x17aa220e
+

@@ -95,9 +95,9 @@ install: extract patch $(PRODUCTS) mount
 	rm -f $(EFIDIR)/EFI/CLOVER/drivers64UEFI/VBoxHfs-64.efi
 	cp -f efi/HFSPlus.efi $(EFIDIR)/EFI/CLOVER/drivers64UEFI/
 	cp $(PATCHED)/dsdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/DSDT.aml
-	cp $(PATCHED)/ssdt2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT2.aml
-	cp $(PATCHED)/ssdt6.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT6.aml
-	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT9.aml
+	cp $(PATCHED)/ssdt2.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-2.aml
+	cp $(PATCHED)/ssdt6.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-6.aml
+	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-9.aml
 	cp dsdt+ssdt/generated/ssdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt.aml
 
 	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/*
