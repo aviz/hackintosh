@@ -3,7 +3,7 @@ PATCHED=$(WORK)/patched
 UNPATCHED=$(WORK)/unpatched
 EXTRACTED=$(WORK)/extracted
 EFIDIR=/Volumes/EFI
-EFIVOL=/dev/disk1s1
+EFIVOL=/dev/disk2s1
 IASLFLAGS=-vr -w1
 LAPTOPGIT=../thirdparty/Laptop-DSDT-Patch
 U430GIT=../thirdparty/Lenovo-U430-Touch-DSDT-Patch
@@ -102,8 +102,9 @@ copy:  mount
 	cp $(PATCHED)/ssdt9.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/SSDT-9.aml
 	cp dsdt+ssdt/generated/ssdt.aml $(EFIDIR)/EFI/CLOVER/ACPI/patched/ssdt.aml
 
-	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/10.9/*
-	cp -R kext/* $(EFIDIR)/EFI/CLOVER/kexts/10.9/
+	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/*/*
+	rm -rf $(EFIDIR)/EFI/CLOVER/kexts/Other/*
+	cp -R kext/* $(EFIDIR)/EFI/CLOVER/kexts/Other/
 
 umount:
 	diskutil unmount $(EFIDIR)

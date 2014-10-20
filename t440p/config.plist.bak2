@@ -10,77 +10,16 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<false/>
-                        <key>Fixes</key>
-                        <dict>
-                                <key>DeleteUnused_400000</key>
-                                <true/>
-                        </dict>
-                        <key>Name</key>
-                        <string>DSDT.aml</string>
+			<key>Fixes</key>
+			<dict>
+				<key>DeleteUnused_400000</key>
+				<true/>
+			</dict>
+			<key>Name</key>
+			<string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
-		<key>DropTables</key>
-		<array>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>CpuPm</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>SgTabl</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>ApIst</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>ApCst</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>AMDSGTBL</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>SaSsdt</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Cst</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>IsctAsl</string>
-			</dict>
-		</array>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -104,21 +43,38 @@
 		<string>PBR</string>
 		<key>Log</key>
 		<false/>
-		<key>NeverHibernate</key>
-		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<string>Yes</string>
+		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<string>No</string>
+		</dict>
 		<key>FakeID</key>
 		<dict>
+			<key>ATI</key>
+			<string>0x0</string>
+			<key>IMEI</key>
+			<string>0x0</string>
 			<key>IntelGFX</key>
 			<string>0x04128086</string>
+			<key>LAN</key>
+			<string>0x0</string>
+			<key>NVidia</key>
+			<string>0x0</string>
+			<key>SATA</key>
+			<string>0x0</string>
+			<key>WIFI</key>
+			<string>0x0</string>
+			<key>XHCI</key>
+			<string>0x0</string>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -159,14 +115,20 @@
 				<dict>
 					<key>Disabled</key>
 					<false/>
-					<key>FullTitle</key>
-					<string>Recovery HD</string>
+					<key>Hidden</key>
+					<true/>
 					<key>Ignore</key>
 					<false/>
 					<key>NoCaches</key>
-					<true/>
+					<false/>
+					<key>Path</key>
+					<string>\EFI\BOOT\BOOTX64.efi</string>
+					<key>Title</key>
+					<string>UEFI Internal</string>
 					<key>Type</key>
-					<string>OSXRecovery</string>
+					<string>Other</string>
+					<key>Volume</key>
+					<string>EFI</string>
 					<key>VolumeType</key>
 					<string>Internal</string>
 				</dict>
@@ -174,18 +136,24 @@
 					<key>Disabled</key>
 					<false/>
 					<key>FullTitle</key>
-					<string>UEFI Internal</string>
+					<string>Recovery HD</string>
 					<key>Hidden</key>
-					<string>Always</string>
+					<true/>
 					<key>Ignore</key>
 					<false/>
+					<key>InjectKexts</key>
+					<true/>
 					<key>NoCaches</key>
-					<false/>
+					<true/>
 					<key>Type</key>
-					<string>Other</string>
+					<string>OSXRecovery</string>
+					<key>VolumeType</key>
+					<string>Internal</string>
 				</dict>
 			</array>
 		</dict>
+		<key>Language</key>
+		<string>en:0</string>
 		<key>Mouse</key>
 		<dict>
 			<key>Enabled</key>
@@ -200,7 +168,7 @@
 			<key>Legacy</key>
 			<false/>
 			<key>Tool</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1024x768</string>
@@ -224,42 +192,12 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
-				<key>Comment</key>
-				<string>Patch audio HDMI HD4400/4600 laptop</string>
-				<key>Find</key>
-				<data>
-				3D8680120w==
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				3D8680160w==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76E0</string>
-				<key>Find</key>
-				<data>
-				hBnUEQ==
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				AAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>mobile HD4600 Yosemite</string>
 				<key>Find</key>
 				<data>
 				PYaAEgQ=
@@ -273,35 +211,35 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix Bluetooth 30 seconds delay 10.9</string>
+				<string>Enable Trim</string>
 				<key>Find</key>
 				<data>
-				AAAAD4UHAQAA
-				</data>
-				<key>Name</key>
-				<string>IOBluetoothHostControllerUSBTransport</string>
-				<key>Replace</key>
-				<data>
-				AAAAD4QHAQAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable Trim on SSD</string>
-				<key>Find</key>
-				<data>
-				QVBQTEUgU1NE
+				AAsAAAAAqgA=
 				</data>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>
-				AAAAAAAAAAAA
+				qqqqqqqqqgA=
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>mobile HD4600 Yosemite</string>
+				<string>External icons patch</string>
+				<key>Find</key>
+				<data>
+				RXh0ZXJuYWw=
+				</data>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>
+				SW50ZXJuYWw=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HD4600 patch</string>
 				<key>Find</key>
 				<data>
 				PYaAEgR0EOtd
@@ -311,34 +249,6 @@
 				<key>Replace</key>
 				<data>
 				PYaAFgR0EOtd
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>IDT 76E0</string>
-				<key>Find</key>
-				<data>
-				ixnUEQ==
-				</data>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				4HYdEQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Patch audio HDMI HD4400/4600 laptop 10.9.1</string>
-				<key>Find</key>
-				<data>
-				3D8680120w==
-				</data>
-				<key>Name</key>
-				<string>AppleIntelFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				3D8680160w==
 				</data>
 			</dict>
 		</array>
@@ -355,8 +265,6 @@
 		<string>Mac-3CBD00234E554E41</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
-		<key>BoardSerialNumber</key>
-		<string>EXN6WE5NDVL5UC4LB</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>ChassisAssetTag</key>
@@ -364,7 +272,7 @@
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
-		<string>8</string>
+		<string>08</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>Manufacturer</key>
@@ -374,7 +282,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02LPUK3FD58</string>
+		<string>C02LV67QFD56</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
@@ -384,6 +292,8 @@
 	<dict>
 		<key>InjectKexts</key>
 		<string>Detect</string>
+		<key>InjectSystemID</key>
+		<false/>
 	</dict>
 </dict>
 </plist>

@@ -10,13 +10,6 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<false/>
-                        <key>Fixes</key>
-                        <dict>
-                                <key>DeleteUnused_400000</key>
-                                <true/>
-                        </dict>
-                        <key>Name</key>
-                        <string>DSDT.aml</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
@@ -84,7 +77,7 @@
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<true/>
+			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
@@ -99,9 +92,9 @@
 		<key>Arguments</key>
 		<string>-gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
-		<string>Alternate</string>
+		<string>Theme</string>
 		<key>Legacy</key>
-		<string>PBR</string>
+		<string>LegacyBiosDefault</string>
 		<key>Log</key>
 		<false/>
 		<key>NeverHibernate</key>
@@ -205,7 +198,7 @@
 		<key>ScreenResolution</key>
 		<string>1024x768</string>
 		<key>Theme</key>
-		<string>thinkpad</string>
+		<string>Yosemite S</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
