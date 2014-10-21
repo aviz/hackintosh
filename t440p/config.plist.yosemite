@@ -275,20 +275,20 @@
 				xoDIAAAAAA==
 				</data>
 			</dict>
-                        <dict>
-                                <key>Comment</key>
-                                <string>Enable Trim</string>
-                                <key>Find</key>
-                                <data>
-                                AAsAAAAAqgA=
-                                </data>
-                                <key>Name</key>
-                                <string>IOAHCIBlockStorage</string>
-                                <key>Replace</key>
-                                <data>
-                                qqqqqqqqqgA=
-                                </data>
-                        </dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable Trim on SSD</string>
+				<key>Find</key>
+				<data>
+				QVBQTEUgU1NE
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAA
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>External icons patch</string>

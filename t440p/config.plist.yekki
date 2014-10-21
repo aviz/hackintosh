@@ -16,7 +16,7 @@
 				<true/>
 			</dict>
 			<key>Name</key>
-			<string>DSDT.aml</string>
+			<string>DSDT</string>
 			<key>ReuseFFFF</key>
 			<false/>
 		</dict>
@@ -36,7 +36,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
+		<string>-gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
 		<key>DefaultVolume</key>
@@ -192,8 +192,6 @@
 			<key>Tool</key>
 			<false/>
 		</dict>
-		<key>ScreenResolution</key>
-		<string>1024x768</string>
 		<key>Theme</key>
 		<string>thinkpad</string>
 	</dict>
@@ -219,6 +217,48 @@
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Enable USB3 after wake for Intel 8</string>
+				<key>Find</key>
+				<data>
+				xoDIAAAAAQ==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				xoDIAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>External icons patch</string>
+				<key>Find</key>
+				<data>
+				RXh0ZXJuYWw=
+				</data>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>
+				SW50ZXJuYWw=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable Trim on SSD</string>
+				<key>Find</key>
+				<data>
+				QVBQTEUgU1NE
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAA
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable ECC Memory in MacPro SMBIOS</string>
@@ -259,48 +299,6 @@
 				<key>Replace</key>
 				<data>
 				PYaAFgR0EOtd
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable USB3 after wake for Intel 8</string>
-				<key>Find</key>
-				<data>
-				xoDIAAAAAQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				xoDIAAAAAA==
-				</data>
-			</dict>
-                        <dict>
-                                <key>Comment</key>
-                                <string>Enable Trim</string>
-                                <key>Find</key>
-                                <data>
-                                AAsAAAAAqgA=
-                                </data>
-                                <key>Name</key>
-                                <string>IOAHCIBlockStorage</string>
-                                <key>Replace</key>
-                                <data>
-                                qqqqqqqqqgA=
-                                </data>
-                        </dict>
-			<dict>
-				<key>Comment</key>
-				<string>External icons patch</string>
-				<key>Find</key>
-				<data>
-				RXh0ZXJuYWw=
-				</data>
-				<key>Name</key>
-				<string>AppleAHCIPort</string>
-				<key>Replace</key>
-				<data>
-				SW50ZXJuYWw=
 				</data>
 			</dict>
 			<dict>
@@ -348,7 +346,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02LLIVYFD56</string>
+		<string>C02LV67QFD56</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>

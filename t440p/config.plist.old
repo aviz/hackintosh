@@ -36,23 +36,19 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>nv_disable=1 -gux_defer_usb2 kext-dev-mode=1</string>
+		<string>-gux_defer_usb2 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<string>Alternate</string>
-		<key>DefaultVolume</key>
-		<string>Yosemite HD</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>Log</key>
 		<false/>
-		<key>NeverHibernate</key>
-		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<string>Yes</string>
+		<false/>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -82,12 +78,10 @@
 		</dict>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<true/>
 			<key>FixOwnership</key>
 			<false/>
 			<key>Inject</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DisableDrivers</key>
@@ -101,28 +95,6 @@
 			<key>Entries</key>
 			<array>
 				<dict>
-					<key>CustomLogo</key>
-					<string>Alternate</string>
-					<key>Disabled</key>
-					<false/>
-					<key>FullTitle</key>
-					<string>Mac OS X Yosemite</string>
-					<key>Hotkey</key>
-					<string>m</string>
-					<key>Ignore</key>
-					<false/>
-					<key>InjectKexts</key>
-					<true/>
-					<key>NoCaches</key>
-					<false/>
-					<key>Type</key>
-					<string>OSX</string>
-					<key>Volume</key>
-					<string>Yosemite HD</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-				<dict>
 					<key>Disabled</key>
 					<false/>
 					<key>FullTitle</key>
@@ -135,22 +107,28 @@
 					<string>\EFI\Microsoft\Boot\bootmgfw-orig.efi</string>
 					<key>Type</key>
 					<string>Windows</string>
+					<key>Volume</key>
+					<string>9EEF8BF6-4D66-4A57-A317-6BCBC658734A</string>
 					<key>VolumeType</key>
 					<string>Internal</string>
 				</dict>
 				<dict>
 					<key>Disabled</key>
 					<false/>
-					<key>FullTitle</key>
-					<string>UEFI Internal</string>
 					<key>Hidden</key>
-					<string>Always</string>
+					<true/>
 					<key>Ignore</key>
 					<false/>
 					<key>NoCaches</key>
 					<false/>
+					<key>Path</key>
+					<string>\EFI\BOOT\BOOTX64.efi</string>
+					<key>Title</key>
+					<string>UEFI Internal</string>
 					<key>Type</key>
 					<string>Other</string>
+					<key>Volume</key>
+					<string>EFI</string>
 					<key>VolumeType</key>
 					<string>Internal</string>
 				</dict>
@@ -166,7 +144,7 @@
 					<key>InjectKexts</key>
 					<true/>
 					<key>NoCaches</key>
-					<false/>
+					<true/>
 					<key>Type</key>
 					<string>OSXRecovery</string>
 					<key>VolumeType</key>
@@ -209,39 +187,23 @@
 			<false/>
 		</dict>
 		<key>ig-platform-id</key>
-		<string>0x0A260006</string>
+		<string>0x0a260006</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
+		<false/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
-				<key>Comment</key>
-				<string>Disable ECC Memory in MacPro SMBIOS</string>
-				<key>Find</key>
-				<data>
-				cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY
-				</data>
-				<key>Name</key>
-				<string>AppleTyMCEDriver</string>
-				<key>Replace</key>
-				<data>
-				cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HD4600 Fix</string>
 				<key>Find</key>
 				<data>
 				PYaAEgQ=
 				</data>
 				<key>Name</key>
-				<string>AppleFramebufferAzul</string>
+				<string>AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
 				PYaAFgQ=
@@ -249,46 +211,18 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>HD4600 Fix</string>
+				<string>Enable Trim</string>
 				<key>Find</key>
 				<data>
-				PYaAEgR0EOtd
+				AAsAAAAAqgA=
 				</data>
 				<key>Name</key>
-				<string>AppleIntelHD5000Graphics</string>
+				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
 				<data>
-				PYaAFgR0EOtd
+				qqqqqqqqqgA=
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable USB3 after wake for Intel 8</string>
-				<key>Find</key>
-				<data>
-				xoDIAAAAAQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				xoDIAAAAAA==
-				</data>
-			</dict>
-                        <dict>
-                                <key>Comment</key>
-                                <string>Enable Trim</string>
-                                <key>Find</key>
-                                <data>
-                                AAsAAAAAqgA=
-                                </data>
-                                <key>Name</key>
-                                <string>IOAHCIBlockStorage</string>
-                                <key>Replace</key>
-                                <data>
-                                qqqqqqqqqgA=
-                                </data>
-                        </dict>
 			<dict>
 				<key>Comment</key>
 				<string>External icons patch</string>
@@ -305,16 +239,16 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fix Bluetooth 30 seconds commandWakeup</string>
+				<string>HD4600 patch</string>
 				<key>Find</key>
 				<data>
-				AAAAD4UHAQAA
+				PYaAEgR0EOtd
 				</data>
 				<key>Name</key>
-				<string>IOBluetoothHostControllerUSBTransport</string>
+				<string>AppleIntelHD5000Graphics</string>
 				<key>Replace</key>
 				<data>
-				AAAAD4QHAQAA
+				PYaAFgR0EOtd
 				</data>
 			</dict>
 		</array>
@@ -348,7 +282,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02LLIVYFD56</string>
+		<string>C02LV67QFD56</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
