@@ -55,7 +55,7 @@
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
 			<key>NETIF_F_TSO</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>OSBundleLibraries</key>
