@@ -221,34 +221,6 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>Disable ECC Memory in MacPro SMBIOS</string>
-				<key>Find</key>
-				<data>
-				cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY
-				</data>
-				<key>Name</key>
-				<string>AppleTyMCEDriver</string>
-				<key>Replace</key>
-				<data>
-				cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HD4600 Fix</string>
-				<key>Find</key>
-				<data>
-				PYaAEgQ=
-				</data>
-				<key>Name</key>
-				<string>AppleFramebufferAzul</string>
-				<key>Replace</key>
-				<data>
-				PYaAFgQ=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>HD4600 Fix</string>
 				<key>Find</key>
 				<data>
@@ -261,34 +233,6 @@
 				PYaAFgR0EOtd
 				</data>
 			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable USB3 after wake for Intel 8</string>
-				<key>Find</key>
-				<data>
-				xoDIAAAAAQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				xoDIAAAAAA==
-				</data>
-			</dict>
-                        <dict>
-                                <key>Comment</key>
-                                <string>Enable Trim</string>
-                                <key>Find</key>
-                                <data>
-                                AAsAAAAAqgA=
-                                </data>
-                                <key>Name</key>
-                                <string>IOAHCIBlockStorage</string>
-                                <key>Replace</key>
-                                <data>
-                                qqqqqqqqqgA=
-                                </data>
-                        </dict>
 			<dict>
 				<key>Comment</key>
 				<string>External icons patch</string>
@@ -315,6 +259,62 @@
 				<key>Replace</key>
 				<data>
 				AAAAD4QHAQAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable Trim on SSD</string>
+				<key>Find</key>
+				<data>
+				QVBQTEUgU1NE
+				</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>
+				AAAAAAAAAAAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HD4600 Fix</string>
+				<key>Find</key>
+				<data>
+				PYaAEgQ=
+				</data>
+				<key>Name</key>
+				<string>AppleFramebufferAzul</string>
+				<key>Replace</key>
+				<data>
+				PYaAFgQ=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable USB3 after wake for Intel 8</string>
+				<key>Find</key>
+				<data>
+				xoDIAAAAAQ==
+				</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				xoDIAAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable ECC Memory in MacPro SMBIOS</string>
+				<key>Find</key>
+				<data>
+				cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY
+				</data>
+				<key>Name</key>
+				<string>AppleTyMCEDriver</string>
+				<key>Replace</key>
+				<data>
+				cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY
 				</data>
 			</dict>
 		</array>
@@ -348,7 +348,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02LLIVYFD56</string>
+		<string>C02K6PXJFD56</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>

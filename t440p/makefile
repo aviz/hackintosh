@@ -58,8 +58,8 @@ patch:
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_PNLF_haswell.txt $(PATCHED)/dsdt.dsl
 
-	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/misc/misc_Lid_PRW.txt $(PATCHED)/dsdt.dsl
-	#patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/misc/misc_Haswell-LPC.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/misc/misc_Lid_PRW.txt $(PATCHED)/dsdt.dsl
+	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/misc/misc_Haswell-LPC.txt $(PATCHED)/dsdt.dsl
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/graphics/graphics_Haswell_0a260006.txt $(PATCHED)/dsdt.dsl
 
 	patchmatic $(PATCHED)/dsdt.dsl $(LAPTOPGIT)/usb/usb_7-series.txt $(PATCHED)/dsdt.dsl
