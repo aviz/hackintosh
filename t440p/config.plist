@@ -59,7 +59,7 @@
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>No</string>
+			<string>1</string>
 		</dict>
 		<key>FakeID</key>
 		<dict>
@@ -220,102 +220,134 @@
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
-				<key>Comment</key>
-				<string>HD4600 Fix</string>
-				<key>Find</key>
-				<data>
-				PYaAEgR0EOtd
-				</data>
 				<key>Name</key>
-				<string>AppleIntelHD5000Graphics</string>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AwYIAAAEAAARAAAA</data>
 				<key>Replace</key>
-				<data>
-				PYaAFgR0EOtd
-				</data>
+				<data>AwYIAAAIAAAGAAAA</data>
+				<key>Comment</key>
+				<string>10.10-Azul-Port_0x7-DP2HDMI</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>External icons patch</string>
-				<key>Find</key>
-				<data>
-				RXh0ZXJuYWw=
-				</data>
 				<key>Name</key>
-				<string>AppleAHCIPort</string>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AgQKAAAEAACHAAAA</data>
 				<key>Replace</key>
-				<data>
-				SW50ZXJuYWw=
-				</data>
+				<data>AgQKAAAIAAAGAAAA</data>
+				<key>Comment</key>
+				<string>10.10-Azul-Port_0x6-DP2HDMI</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Fix Bluetooth 30 seconds commandWakeup</string>
-				<key>Find</key>
-				<data>
-				AAAAD4UHAQAA
-				</data>
 				<key>Name</key>
-				<string>IOBluetoothHostControllerUSBTransport</string>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>AQUJAAAEAACHAAAA</data>
 				<key>Replace</key>
-				<data>
-				AAAAD4QHAQAA
-				</data>
+				<data>AQUJAAAIAAAGAAAA</data>
+				<key>Comment</key>
+				<string>10.10-Azul-Port_0x5-DP2HDMI</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Enable Trim on SSD</string>
-				<key>Find</key>
-				<data>
-				QVBQTEUgU1NE
-				</data>
 				<key>Name</key>
-				<string>IOAHCIBlockStorage</string>
+				<string>AppleHDAController</string>
+				<key>Find</key>
+				<data>PQwMAAAPhSABAAA=</data>
 				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAA
-				</data>
+				<data>PQwMAAB0S5CQkJA=</data>
+				<key>Comment</key>
+				<string>10.10-HD4600_HDMI_Audio-3of3</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>HD4600 Fix</string>
-				<key>Find</key>
-				<data>
-				PYaAEgQ=
-				</data>
 				<key>Name</key>
-				<string>AppleFramebufferAzul</string>
+				<string>AppleHDAController</string>
+				<key>Find</key>
+				<data>PQwKAAAPhA==</data>
 				<key>Replace</key>
-				<data>
-				PYaAFgQ=
-				</data>
+				<data>PQwMAAAPhA==</data>
+				<key>Comment</key>
+				<string>10.10-HD4600_HDMI_Audio-2of3</string>
 			</dict>
 			<dict>
-				<key>Comment</key>
-				<string>Enable USB3 after wake for Intel 8</string>
-				<key>Find</key>
-				<data>
-				xoDIAAAAAQ==
-				</data>
 				<key>Name</key>
-				<string>AppleUSBXHCI</string>
+				<string>AppleHDAController</string>
+				<key>Find</key>
+				<data>PQwKAAB0Dg==</data>
 				<key>Replace</key>
-				<data>
-				xoDIAAAAAA==
-				</data>
+				<data>PQwMAAB0Dg==</data>
+				<key>Comment</key>
+				<string>10.10-HD4600_HDMI_Audio-1of3</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Disable ECC Memory in MacPro SMBIOS</string>
 				<key>Find</key>
-				<data>
-				cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY
-				</data>
+				<data>cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY</data>
 				<key>Name</key>
 				<string>AppleTyMCEDriver</string>
 				<key>Replace</key>
-				<data>
-				cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY
-				</data>
+				<data>cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HD4600 Fix</string>
+				<key>Find</key>
+				<data>PYaAEgQ=</data>
+				<key>Name</key>
+				<string>AppleFramebufferAzul</string>
+				<key>Replace</key>
+				<data>PYaAFgQ=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HD4600 Fix</string>
+				<key>Find</key>
+				<data>PYaAEgR0EOtd</data>
+				<key>Name</key>
+				<string>AppleIntelHD5000Graphics</string>
+				<key>Replace</key>
+				<data>PYaAFgR0EOtd</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable USB3 after wake for Intel 8</string>
+				<key>Find</key>
+				<data>xoDIAAAAAQ==</data>
+				<key>Name</key>
+				<string>AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>xoDIAAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable Trim</string>
+				<key>Find</key>
+				<data>AAsAAAAAqgA=</data>
+				<key>Name</key>
+				<string>IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>qqqqqqqqqgA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>External icons patch</string>
+				<key>Find</key>
+				<data>RXh0ZXJuYWw=</data>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>SW50ZXJuYWw=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fix Bluetooth 30 seconds commandWakeup</string>
+				<key>Find</key>
+				<data>AAAAD4UHAQAA</data>
+				<key>Name</key>
+				<string>IOBluetoothHostControllerUSBTransport</string>
+				<key>Replace</key>
+				<data>AAAAD4QHAQAA</data>
 			</dict>
 		</array>
 	</dict>
@@ -348,7 +380,7 @@
 		<key>ProductName</key>
 		<string>MacBookPro11,2</string>
 		<key>SerialNumber</key>
-		<string>C02K6PXJFD56</string>
+		<string>C02LLIVYFD56</string>
 		<key>Trust</key>
 		<false/>
 		<key>Version</key>
